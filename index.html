@@ -23,13 +23,15 @@
         <h2><span>Cv</span> Maker</h2>
       </div>
       <ul>
-        <li><a href="">Print</a></li>
+        <li>
+          <a href="javascript:void(0)" onclick="switchTheme()">Switch Theme</a>
+        </li>
         <li><a href="">Clear</a></li>
       </ul>
     </nav>
     <div class="space"></div>
     <div class="container">
-      <form action="">
+      <form action="submit" method="POST">
         <div class="main">
           <h1 class="part-1">
             Personal Info
@@ -40,6 +42,7 @@
           <div class="main-1">
             <div class="img-div">
               <img
+                id="fimg"
                 class="img"
                 src="assets/img/default.jpg"
                 alt="Image preview..."
@@ -296,6 +299,7 @@ Project2 - (Languages Used)"
                 type="submit"
                 name="generate"
                 id="generate"
+                onclick="getInputs()"
               />
             </div>
           </div>
@@ -318,7 +322,7 @@ Project2 - (Languages Used)"
       gdfgfgdfgd
         fg -->
 
-    <div class="template-container">
+    <div class="template-container show-template">
       <div class="main">
         <h1 class="part-1">
           Personal Info
@@ -328,6 +332,7 @@ Project2 - (Languages Used)"
         <div class="main-1">
           <div class="img-div">
             <img
+              id="timg"
               class="img"
               src="assets/img/default.jpg"
               alt="Image preview..."
