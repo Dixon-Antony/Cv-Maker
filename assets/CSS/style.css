@@ -75,6 +75,7 @@ html {
     justify-content: space-around;
 }
 
+
 /* Main-content */
 
 .main{
@@ -187,6 +188,10 @@ textarea{
   padding-top: 2rem;
 }
 
+.main-8 textarea{
+  width: 75%;
+}
+
 .generate-btn{
   width: 100%;
   display: flex;
@@ -216,3 +221,64 @@ textarea{
   width: 95%;
 }
 
+/* Template */
+/* .... */
+
+.template-container{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.template-container h1{
+  font-size: 25px;
+}
+
+.template-container h3{
+  font-weight: lighter;
+}
+
+.template-container .main{
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  padding: 3rem;
+  background: rgba(0, 0, 0, 1);
+  border-radius: 10px;
+}
+
+.template-container label{
+  margin-right: 1rem;
+}
+
+.template-container h3{
+  display: inline;
+}
+
+.template-container .main-1{
+  grid-template-columns: 1fr 3fr;
+}
+
+.template-container .main .part-2{
+  margin-top: 0rem;
+}
+
+.template-container .main-1 .section-2{
+  justify-content: center;
+  padding-left: 10rem;
+  align-items: flex-start;
+}
+
+.template-container .main-2, 
+.template-container .main-3,
+.template-container .main-6,
+.template-container .main-7{
+  margin-top:0.5rem;
+}
+
+.template-container .main-4, 
+.template-container .main-5{
+  padding: 1rem 6rem;
+}
