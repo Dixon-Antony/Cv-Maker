@@ -1,15 +1,16 @@
 
-const imageInput = document.getElementById('img');
-const imgField = document.getElementById('img-field');
-
-alert('Hello');
-
-imageInput.addEventListener('change',(e)=>{
-    let file = e.target.value[0];
-    let reader = new FileReader();
-    reader.onloadend = () =>{
-        imgField.src = reader.result;
+function previewFile() {
+    var preview = document.querySelector('img');
+    var file    = document.querySelector('input[type=file]').files[0];
+    var reader  = new FileReader();
+  
+    reader.onloadend = function () {
+      preview.src = reader.result;
     }
-    reader.readAsDataURL(file); 
-
-});
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      preview.src = "assets/img/default.jpg";
+    }
+  }

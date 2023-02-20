@@ -4,12 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="assets/CSS/style.css" />
     <!-- imgScript -->
-    <script src="../scripts/index.js"></script>
+    <script src="./scripts/index.js"></script>
+
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
 
     <title>CV Maker</title>
   </head>
+
   <body>
     <nav id="main-nav">
       <div class="nav-content">
@@ -21,15 +28,247 @@
       </ul>
     </nav>
     <div class="space"></div>
-    <div class="contrainer">
-      <div class="main">
-        <form action="POST">
-          <input type="file" id="img" name="img" accept="image/*" />
-          <div class="img">
-            <img id="img-field" src="" alt="" />
+    <div class="container">
+      <form action="">
+        <div class="main">
+          <h1 class="part-1">
+            Personal Info
+            <br />
+            <hr />
+            <br />
+          </h1>
+          <div class="main-1">
+            <div class="img-div">
+              <img
+                class="img"
+                src="assets/img/default.jpg"
+                alt="Image preview..."
+              />
+            </div>
+            <div class="section-2 section">
+              <div>
+                <label for="fname">Name : </label><br />
+                <input
+                  type="text"
+                  name="fname"
+                  id="fname"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div>
+                <label for="job">Job title : </label><br />
+                <input
+                  type="text"
+                  name="job"
+                  id="job"
+                  placeholder="Enter your job title"
+                  required
+                />
+              </div>
+              <div style="margin-top: 3rem">
+                <label for="img-field" name="img-field"
+                  >Profile Picture
+                  <i class="fa fa-upload" aria-hidden="true"></i> </label
+                ><br />
+                <input
+                  id="img-field"
+                  type="file"
+                  name="img-field"
+                  accept="image/*"
+                  onchange="previewFile()"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="section-3 section">
+              <div>
+                <label for="Contact"
+                  ><i class="fa-solid fa-address-book fa-2x" aria-hidden="true">
+                    :</i
+                  >
+                </label>
+                <input
+                  type="tel"
+                  name="Contact"
+                  id="Contact"
+                  pattern="[0-9]{10}"
+                  placeholder="Enter your Contact no."
+                  required
+                />
+              </div>
+              <div>
+                <label for="E-mail"
+                  ><i class="fa-solid fa-envelope fa-2x" aria-hidden="true">
+                    :</i
+                  >
+                </label>
+                <input
+                  type="email"
+                  name="E-mail"
+                  id="E-mail"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+            </div>
           </div>
-        </form>
-      </div>
+          <!-- Main-2 -->
+          <!-- .... -->
+          <h1 class="part-2">
+            Previous Job <br />
+            <hr />
+          </h1>
+          <div class="main-2">
+            <div>
+              <label for="oldCompany">Previous Company Name : </label
+              ><br /><br />
+              <input
+                type="text"
+                name="oldCompany"
+                id="oldCompany"
+                placeholder="Enter your Prev Company name"
+              />
+            </div>
+            <div>
+              <label for="oldjob">Previous Job title :</label><br /><br />
+              <input
+                type="text"
+                name="oldjob"
+                id="oldjob"
+                placeholder="Enter your previous job title"
+              />
+            </div>
+          </div>
+
+          <!-- Main-3 -->
+          <!-- .... -->
+          <div class="main-3">
+            <div>
+              <label for="startDate">Start Date : </label><br /><br />
+              <input type="date" name="startDate" id="startDate" />
+            </div>
+            <div>
+              <label for="endDate">End Date :</label><br /><br />
+              <input type="date" name="endDate" id="endDate" />
+            </div>
+          </div>
+
+          <div class="main-4">
+            <div>
+              <label for="jobdesc">Job Description : </label><br /><br />
+              <textarea
+                name="jobdesc"
+                id="jobdesc"
+                cols="150"
+                rows="10"
+              ></textarea>
+            </div>
+          </div>
+
+          <h1 class="part-3">
+            Profile Details <br />
+            <hr />
+          </h1>
+          <div class="main-5">
+            <div>
+              <label for="tellme"
+                >Profile Summary : (tell us about yourself) </label
+              ><br /><br />
+              <textarea
+                name="tellme"
+                id="tellme"
+                cols="150"
+                rows="10"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="main-6">
+            <div>
+              <label for="school">School Name : </label><br /><br />
+              <input
+                type="text"
+                name="school"
+                id="school"
+                placeholder="Enter your institution name"
+                required
+              />
+            </div>
+            <div>
+              <label for="college">College Name :</label><br /><br />
+              <input
+                type="text"
+                name="college"
+                id="college"
+                placeholder="Enter your institution name"
+                required
+              />
+            </div>
+          </div>
+          <div class="main-7">
+            <div>
+              <label for="tenth">SSLC Score : (in %)</label><br /><br />
+              <input
+                type="number"
+                name="tenth"
+                id="tenth"
+                min="0"
+                max="100"
+                placeholder="Enter in %"
+                required
+              />
+            </div>
+            <div>
+              <label for="twelth">HSC Score : (in %)</label><br /><br />
+              <input
+                type="number"
+                name="twelth"
+                id="twelth"
+                min="0"
+                max="100"
+                placeholder="Enter in %"
+                required
+              />
+            </div>
+          </div>
+          <div class="main-8">
+            <div>
+              <label for="skills">Skills : (technical)</label><br /><br />
+              <input
+                type="text"
+                name="skills"
+                id="skills"
+                placeholder="Enter your technical expertise (comma separated)"
+              />
+            </div>
+            <br />
+            <div>
+              <label for="hobbies">Hobbies :</label><br /><br />
+              <input
+                type="text"
+                name="hobbies"
+                id="hobbies"
+                placeholder="Enter your hobbies"
+              />
+            </div>
+          </div>
+          <br /><br />
+          <div class="generate-btn">
+            <div>
+              <input
+                class="btn"
+                value="Generate Resume"
+                type="submit"
+                name="generate"
+                id="generate"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
+    <div class="space"></div>
   </body>
 </html>
