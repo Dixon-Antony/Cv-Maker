@@ -24,7 +24,7 @@ function switchTheme() {
   let tempMain = document.getElementById("templateMain");
   let labels = document.querySelectorAll(".template-container label");
   let inputs = document.querySelectorAll(".main input");
-  let headings = document.querySelectorAll("h1");
+  let headings = document.querySelectorAll(".container h1");
   let span = document.getElementById("span");
   let textareas = document.querySelectorAll("textarea");
   let mains = document.getElementById("mains");

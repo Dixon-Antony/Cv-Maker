@@ -38,16 +38,24 @@ ul {
   padding: 4rem;
 }
 
-.redstar {
-  color: red;
-}
-
 h1 {
   color: #4589eb;
 }
 
 .colorDark {
   color: #33ffc1 !important;
+}
+
+.mega-container {
+  height: 100vh;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mega-container h1 {
+  color: white;
 }
 
 #main-nav {
