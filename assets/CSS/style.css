@@ -252,7 +252,7 @@ textarea {
 }
 
 .generate-btn .btn:hover {
-  color: black;
+  color: black !important;
   background-color: #33ffc1;
 }
 
@@ -308,7 +308,7 @@ textarea {
 }
 
 .darkTemplate {
-  background: rgba(38, 42, 41, 0.9) !important;
+  background: rgba(0, 0, 0, 0.9) !important;
   /* background: url("../img/dark1.jpg") no-repeat center center/cover !important; */
   color: white !important;
 }
@@ -345,4 +345,24 @@ textarea {
 .template-container .main-4,
 .template-container .main-5 {
   padding: 1rem 6rem;
+}
+
+#download-btn {
+  display: inline-block;
+  font-family: Maiandra GD;
+  font-size: 20px;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  margin: 0 2rem;
+  font-weight: bold;
+  background-color: #111;
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+#download-btn:hover {
+  color: black;
+  background-color: #33ffc1;
 }

@@ -5,6 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/CSS/style.css" />
+
+    <!-- download -->
+    <!-- html2canvas library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
     <!-- imgScript -->
     <script src="./scripts/index.js"></script>
 
@@ -77,7 +87,6 @@
                   <i class="fa fa-upload" aria-hidden="true"></i> </label
                 ><br />
                 <input
-                  class="darkInput"
                   id="img-field"
                   type="file"
                   name="img-field"
@@ -105,7 +114,7 @@
               </div>
 
               <div>
-                <label for="Contact"
+                <label for="contact"
                   ><i class="fa-solid fa-address-book fa-2x" aria-hidden="true">
                     :</i
                   >
@@ -113,15 +122,15 @@
                 <input
                   class="darkInput"
                   type="tel"
-                  name="Contact"
-                  id="Contact"
+                  name="contact"
+                  id="contact"
                   pattern="[0-9]{10}"
                   placeholder="Enter your Contact no."
                   required
                 />
               </div>
               <div>
-                <label for="E-mail"
+                <label for="email"
                   ><i class="fa-solid fa-envelope fa-2x" aria-hidden="true">
                     :</i
                   >
@@ -129,9 +138,9 @@
                 <input
                   class="darkInput"
                   type="email"
-                  name="E-mail"
-                  id="E-mail"
-                  placeholder="Enter your email"
+                  name="email"
+                  id="email"
+                  placeholder="Enter your E-mail id"
                   required
                 />
               </div>
@@ -194,10 +203,11 @@
             <div>
               <label for="jobdesc">Job Description : </label><br /><br />
               <textarea
-                name="jobdesc"
+                class="darkInput"
                 id="jobdesc"
                 cols="150"
                 rows="10"
+                placeholder="Enter job description ..."
               ></textarea>
             </div>
           </div>
@@ -208,14 +218,16 @@
           </h1>
           <div class="main-5">
             <div>
-              <label for="tellme"
-                >Profile Summary : (tell us about yourself) </label
+              <label for="tellme">Profile Summary : (About You) </label
               ><br /><br />
               <textarea
+                class="darkInput"
                 name="tellme"
                 id="tellme"
                 cols="150"
                 rows="10"
+                placeholder="Tell us about yourself ..."
+                required
               ></textarea>
             </div>
           </div>
@@ -282,19 +294,22 @@
                 name="cgpa"
                 id="cgpa"
                 placeholder="Enter your University CGPA (out of 10)"
+                required
               />
             </div>
             <br />
             <div>
-              <label for="tprojects">Projects : (title and language used)</label
+              <label for="projects">Projects : (title and language used)</label
               ><br /><br />
               <textarea
+                class="darkInput"
                 cols="150"
                 rows="5"
                 name="projects"
                 id="projects"
                 placeholder="Project1 - (Languages Used)
 Project2 - (Languages Used)"
+                required
               ></textarea>
             </div>
             <br />
@@ -306,6 +321,7 @@ Project2 - (Languages Used)"
                 name="skills"
                 id="skills"
                 placeholder="Enter your technical expertise (comma separated)"
+                required
               />
             </div>
             <br />
@@ -317,6 +333,7 @@ Project2 - (Languages Used)"
                 name="hobbies"
                 id="hobbies"
                 placeholder="Enter your hobbies (comma separated)"
+                required
               />
             </div>
           </div>
@@ -409,11 +426,11 @@ Project2 - (Languages Used)"
         </div>
         <!-- Main-2 -->
         <!-- .... -->
-        <h1 class="part-2 darkHeading">
+        <h1 id="prevHeading" class="part-2 darkHeading">
           Previous Job <br />
           <hr />
         </h1>
-        <div class="main-2">
+        <div id="prevMain-2" class="main-2">
           <div>
             <label id="tlabel" class="darkLabel" for="toldCompany"
               >Previous Company Name :
@@ -424,13 +441,13 @@ Project2 - (Languages Used)"
             <label id="tlabel" class="darkLabel" for="toldjob"
               >Previous Job title :</label
             >
-            <h3 name="toldjob" id="'toldjob">Software Engineer</h3>
+            <h3 name="toldjob" id="toldjob">Software Engineer</h3>
           </div>
         </div>
 
         <!-- Main-3 -->
         <!-- .... -->
-        <div class="main-3">
+        <div id="prevMain-3" class="main-3">
           <div>
             <label id="tlabel" class="darkLabel" for="tstartDate"
               >Start Date :
@@ -441,11 +458,11 @@ Project2 - (Languages Used)"
             <label id="tlabel" class="darkLabel" for="tendDate"
               >End Date :</label
             >
-            <h3 name="tendDate" id="tstartDate">01 / 01 / 2021</h3>
+            <h3 name="tendDate" id="tendDate">01 / 01 / 2021</h3>
           </div>
         </div>
 
-        <div class="main-4">
+        <div id="prevMain-4" class="main-4">
           <div>
             <label id="tlabel" class="darkLabel" for="tjobdesc"
               >Job Description : </label
@@ -540,6 +557,11 @@ Project2 - (Languages Used)"
             </h3>
           </div>
         </div>
+      </div>
+      <br /><br />
+      <div class="download">
+        <div id="editor"></div>
+        <a id="download-btn" onclick="downloadPDF()">Download Resume</a>
       </div>
     </div>
     <div class="space"></div>
