@@ -181,7 +181,7 @@ function downloadPDF() {
       pdf.addImage(base64image, "PNG", 15, 15, 669, 902); //669 722
     }
 
-    pdf.save("webtylepress-two.pdf");
+    pdf.save(tfname.textContent + "'s Resume" + ".pdf");
   });
 }
 

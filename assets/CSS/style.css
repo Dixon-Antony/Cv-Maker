@@ -317,7 +317,8 @@ textarea {
   margin-right: 1rem;
 }
 
-.template-container h3 {
+.template-container h3,
+p {
   display: inline;
 }
 
