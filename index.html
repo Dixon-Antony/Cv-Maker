@@ -17,23 +17,23 @@
     <title>CV Maker</title>
   </head>
 
-  <body>
+  <body class="dark-body">
     <nav id="main-nav">
-      <div class="nav-content">
-        <h2><span>Cv</span> Maker</h2>
+      <div id="nav-content" class="nav-content navDark">
+        <h2><span id="span" class="spanDark">Cv</span> Maker</h2>
       </div>
       <ul>
         <li>
           <a href="javascript:void(0)" onclick="switchTheme()">Switch Theme</a>
         </li>
-        <li><a href="">Clear</a></li>
+        <li><a href="">Refresh</a></li>
       </ul>
     </nav>
     <div class="space"></div>
     <div class="container">
       <form action="submit" method="POST">
-        <div class="main">
-          <h1 class="part-1">
+        <div id="mains" class="main darkMain">
+          <h1 class="part-1 darkHeading">
             Personal Info
             <br />
             <hr />
@@ -52,6 +52,7 @@
               <div>
                 <label for="fname">Name : </label><br />
                 <input
+                  class="darkInput"
                   type="text"
                   name="fname"
                   id="fname"
@@ -62,6 +63,7 @@
               <div>
                 <label for="job">Job title : </label><br />
                 <input
+                  class="darkInput"
                   type="text"
                   name="job"
                   id="job"
@@ -75,6 +77,7 @@
                   <i class="fa fa-upload" aria-hidden="true"></i> </label
                 ><br />
                 <input
+                  class="darkInput"
                   id="img-field"
                   type="file"
                   name="img-field"
@@ -92,7 +95,13 @@
                     :</i
                   >
                 </label>
-                <input type="date" name="bday" id="bday" required />
+                <input
+                  class="darkInput"
+                  type="date"
+                  name="bday"
+                  id="bday"
+                  required
+                />
               </div>
 
               <div>
@@ -102,6 +111,7 @@
                   >
                 </label>
                 <input
+                  class="darkInput"
                   type="tel"
                   name="Contact"
                   id="Contact"
@@ -117,6 +127,7 @@
                   >
                 </label>
                 <input
+                  class="darkInput"
                   type="email"
                   name="E-mail"
                   id="E-mail"
@@ -128,7 +139,7 @@
           </div>
           <!-- Main-2 -->
           <!-- .... -->
-          <h1 class="part-2">
+          <h1 class="part-2 darkHeading">
             Previous Job <br />
             <hr />
           </h1>
@@ -137,6 +148,7 @@
               <label for="oldCompany">Previous Company Name : </label
               ><br /><br />
               <input
+                class="darkInput"
                 type="text"
                 name="oldCompany"
                 id="oldCompany"
@@ -146,6 +158,7 @@
             <div>
               <label for="oldjob">Previous Job title :</label><br /><br />
               <input
+                class="darkInput"
                 type="text"
                 name="oldjob"
                 id="oldjob"
@@ -159,11 +172,21 @@
           <div class="main-3">
             <div>
               <label for="startDate">Start Date : </label><br /><br />
-              <input type="date" name="startDate" id="startDate" />
+              <input
+                class="darkInput"
+                type="date"
+                name="startDate"
+                id="startDate"
+              />
             </div>
             <div>
               <label for="endDate">End Date :</label><br /><br />
-              <input type="date" name="endDate" id="endDate" />
+              <input
+                class="darkInput"
+                type="date"
+                name="endDate"
+                id="endDate"
+              />
             </div>
           </div>
 
@@ -179,7 +202,7 @@
             </div>
           </div>
 
-          <h1 class="part-3">
+          <h1 class="part-3 darkHeading">
             Profile Details <br />
             <hr />
           </h1>
@@ -201,6 +224,7 @@
             <div>
               <label for="school">School Name : </label><br /><br />
               <input
+                class="darkInput"
                 type="text"
                 name="school"
                 id="school"
@@ -211,6 +235,7 @@
             <div>
               <label for="college">College Name :</label><br /><br />
               <input
+                class="darkInput"
                 type="text"
                 name="college"
                 id="college"
@@ -223,6 +248,7 @@
             <div>
               <label for="tenth">SSLC Score : (in %)</label><br /><br />
               <input
+                class="darkInput"
                 type="number"
                 name="tenth"
                 id="tenth"
@@ -235,6 +261,7 @@
             <div>
               <label for="twelth">HSC Score : (in %)</label><br /><br />
               <input
+                class="darkInput"
                 type="number"
                 name="twelth"
                 id="twelth"
@@ -250,6 +277,7 @@
               <label for="cgpa">University CGPA : (out of 10)</label
               ><br /><br />
               <input
+                class="darkInput"
                 type="text"
                 name="cgpa"
                 id="cgpa"
@@ -273,6 +301,7 @@ Project2 - (Languages Used)"
             <div>
               <label for="skills">Skills : (technical)</label><br /><br />
               <input
+                class="darkInput"
                 type="text"
                 name="skills"
                 id="skills"
@@ -283,6 +312,7 @@ Project2 - (Languages Used)"
             <div>
               <label for="hobbies">Hobbies :</label><br /><br />
               <input
+                class="darkInput"
                 type="text"
                 name="hobbies"
                 id="hobbies"
@@ -300,6 +330,15 @@ Project2 - (Languages Used)"
                 name="generate"
                 id="generate"
                 onclick="getInputs()"
+              />
+            </div>
+            <div>
+              <input
+                class="btn"
+                value="Clear Content"
+                type="reset"
+                name="clear"
+                id="clear"
               />
             </div>
           </div>
@@ -323,8 +362,8 @@ Project2 - (Languages Used)"
         fg -->
 
     <div class="template-container show-template">
-      <div class="main">
-        <h1 class="part-1">
+      <div id="templateMain" class="main darkTemplate">
+        <h1 class="part-1 darkHeading">
           Personal Info
           <br />
           <hr />
@@ -340,41 +379,51 @@ Project2 - (Languages Used)"
           </div>
           <div class="section-2 section">
             <div>
-              <label for="tfname">Name : </label>
+              <label id="tlabel" class="darkLabel" for="tfname">Name : </label>
               <h3 name="tfname" id="tfname">Dixon Antony</h3>
             </div>
             <div>
-              <label for="tjob">Job title : </label>
+              <label id="tlabel" class="darkLabel" for="tjob"
+                >Job title :
+              </label>
               <h3 name="tjob" id="tjob">Web Developer</h3>
             </div>
             <div>
-              <label for="tbday">DOB : </label>
+              <label id="tlabel" class="darkLabel" for="tbday">DOB : </label>
               <h3 name="tbday" id="tbday">23/12/2001</h3>
             </div>
 
             <div>
-              <label for="tcontact">Contact : </label>
+              <label id="tlabel" class="darkLabel" for="tcontact"
+                >Contact :
+              </label>
               <h3 name="tcontact" id="tcontact">9998887776</h3>
             </div>
             <div>
-              <label for="temail">E-mail : </label>
+              <label id="tlabel" class="darkLabel" for="temail"
+                >E-mail :
+              </label>
               <h3 name="temail" id="temail">dixon@gmail.com</h3>
             </div>
           </div>
         </div>
         <!-- Main-2 -->
         <!-- .... -->
-        <h1 class="part-2">
+        <h1 class="part-2 darkHeading">
           Previous Job <br />
           <hr />
         </h1>
         <div class="main-2">
           <div>
-            <label for="toldCompany">Previous Company Name : </label>
+            <label id="tlabel" class="darkLabel" for="toldCompany"
+              >Previous Company Name :
+            </label>
             <h3 name="toldCompany" id="toldCompany">Vuram</h3>
           </div>
           <div>
-            <label for="toldjob">Previous Job title :</label>
+            <label id="tlabel" class="darkLabel" for="toldjob"
+              >Previous Job title :</label
+            >
             <h3 name="toldjob" id="'toldjob">Software Engineer</h3>
           </div>
         </div>
@@ -383,18 +432,24 @@ Project2 - (Languages Used)"
         <!-- .... -->
         <div class="main-3">
           <div>
-            <label for="tstartDate">Start Date : </label>
+            <label id="tlabel" class="darkLabel" for="tstartDate"
+              >Start Date :
+            </label>
             <h3 name="tstartDate" id="tstartDate">01 / 01 / 2020</h3>
           </div>
           <div>
-            <label for="tendDate">End Date :</label>
+            <label id="tlabel" class="darkLabel" for="tendDate"
+              >End Date :</label
+            >
             <h3 name="tendDate" id="tstartDate">01 / 01 / 2021</h3>
           </div>
         </div>
 
         <div class="main-4">
           <div>
-            <label for="tjobdesc">Job Description : </label><br />
+            <label id="tlabel" class="darkLabel" for="tjobdesc"
+              >Job Description : </label
+            ><br />
             <p name="tjobdesc" id="tjobdesc">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Dignissimos alias, reprehenderit quaerat ullam explicabo eos
@@ -404,13 +459,15 @@ Project2 - (Languages Used)"
           </div>
         </div>
 
-        <h1 class="part-3">
+        <h1 class="part-3 darkHeading">
           Profile Details <br />
           <hr />
         </h1>
         <div class="main-5">
           <div>
-            <label for="ttellme">Profile Summary : </label><br />
+            <label id="tlabel" class="darkLabel" for="ttellme"
+              >Profile Summary : </label
+            ><br />
             <p name="ttellme" id="ttellme">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
               consequatur quas obcaecati odio? Corrupti recusandae ea fugit
@@ -422,13 +479,17 @@ Project2 - (Languages Used)"
 
         <div class="main-6">
           <div>
-            <label for="tschool">School Name : </label><br />
+            <label id="tlabel" class="darkLabel" for="tschool"
+              >School Name : </label
+            ><br />
             <h3 name="tschool" id="tschool">
               Kanchi Sri Sankara Academy M.H.S.S
             </h3>
           </div>
           <div>
-            <label for="tcollege">College Name : </label><br />
+            <label id="tlabel" class="darkLabel" for="tcollege"
+              >College Name : </label
+            ><br />
             <h3 name="tcollege" id="tcollege">
               Thiagarajar College of Engineering
             </h3>
@@ -436,34 +497,44 @@ Project2 - (Languages Used)"
         </div>
         <div class="main-7">
           <div>
-            <label for="ttenth">SSLC Score : (in %)</label><br />
+            <label id="tlabel" class="darkLabel" for="ttenth"
+              >SSLC Score : (in %)</label
+            ><br />
             <h3 name="ttenth" id="ttenth">99 %</h3>
           </div>
           <div>
-            <label for="ttwelth">HSC Score : (in %)</label><br />
+            <label id="tlabel" class="darkLabel" for="ttwelth"
+              >HSC Score : (in %)</label
+            ><br />
             <h3 name="ttwelth" id="ttwelth">88.5 %</h3>
           </div>
         </div>
         <div class="main-8">
           <div>
-            <label for="tcgpa">University CGPA : (out of 10)</label><br />
+            <label id="tlabel" class="darkLabel" for="tcgpa"
+              >University CGPA : (out of 10)</label
+            ><br />
             <h3 name="tcgpa" id="tcgpa">9.23 / 10</h3>
           </div>
           <br />
           <div>
-            <label for="tprojects">Projects : </label><br />
+            <label id="tlabel" class="darkLabel" for="tprojects"
+              >Projects : </label
+            ><br />
             <h3 name="tprojects" id="tprojects">
               Movie Recommendation System, Events Management System
             </h3>
           </div>
           <br />
           <div>
-            <label for="tskills">Skills : </label><br />
+            <label id="tlabel" class="darkLabel" for="tskills">Skills : </label
+            ><br />
             <h3 name="tskills" id="tskills">Python, HTml, CSS, JavaScript</h3>
           </div>
           <br />
           <div>
-            <label for="thobbies">Hobbies :</label><br />
+            <label id="tlabel" class="darkLabel" for="thobbies">Hobbies :</label
+            ><br />
             <h3 name="thobbies" id="thobbies">
               Playing VideoGames, Working out
             </h3>

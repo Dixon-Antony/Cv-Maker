@@ -17,7 +17,40 @@ function previewFile() {
     }
   }
 
+  function switchTheme(){
+    var body = document.body;
+    var navContent = document.getElementById('nav-content');
+    var tempMain = document.getElementById('templateMain');
+    var labels = document.querySelectorAll('.template-container label');
+    var inputs = document.querySelectorAll('.main input');
+    var headings = document.querySelectorAll('h1');
+    var span = document.getElementById('span');
+    var mains = document.getElementById('mains');
 
+    for(let input of inputs){
+      input.classList.toggle('darkInput');
+    }
+
+    for(let label of labels){
+      label.classList.toggle('darkLabel');
+    }
+
+    for(let heading of headings){
+      heading.classList.toggle('darkHeading');
+    }
+
+    body.classList.toggle('dark-body');
+    navContent.classList.toggle('navDark');
+    tempMain.classList.toggle('darkTemplate');
+    span.classList.toggle('spanDark');
+    mains.classList.toggle('darkMain');
+
+  }
+
+
+  function getInputs(){
+    return;
+  }
 
 
     window.onload = () =>{
