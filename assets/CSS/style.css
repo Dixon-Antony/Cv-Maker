@@ -58,6 +58,11 @@ h1 {
   color: white;
 }
 
+.strike {
+  text-decoration: line-through;
+  color: #222;
+}
+
 #main-nav {
   background: rgba(0, 0, 0, 0.3);
   position: fixed;
