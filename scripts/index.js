@@ -217,21 +217,21 @@ function getInputs() {
   // console.log(e);
 
   var allReq = document.querySelectorAll("[required]");
-  // for (var i of allReq) {
-  //   i.style.border = "none";
-  //   if (i.value == "") {
-  //     alert("Please Fill in all required fields *");
+  for (var i of allReq) {
+    i.style.border = "none";
+    if (i.value == "") {
+      alert("Please Fill in all required fields *");
 
-  //     i.style.border = `1px solid #FC5858`;
+      i.style.border = `1px solid #FC5858`;
 
-  //     i.scrollIntoView({
-  //       behavior: "auto",
-  //       block: "center",
-  //       inline: "center",
-  //     });
-  //     return;
-  //   }
-  // }
+      i.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "center",
+      });
+      return;
+    }
+  }
 
   if (confirm("Are you sure, you want to generate your resume ?")) {
     let gen = document.getElementById("generate");
@@ -319,9 +319,11 @@ function getInputs() {
     var tProfiles = $("#tProfiles");
     if (profiles[0].value) {
       for (let i = 0; i < profiles.length; i += 2) {
-        var profilesContent = `<li><a target='_blank' class='darkList' href='${
+        var profilesContent = `<li>${
+          profiles[i].value
+        } --> <a target='_blank' class='darkList' href='${
           profiles[i + 1].value
-        }'>${profiles[i].value}</a></li>`;
+        }'>Click for ${profiles[i].value} Profile</a></li>`;
         console.log(profilesContent);
         $(tProfiles).append(profilesContent);
       }
@@ -409,6 +411,14 @@ function getInputs() {
     //
     if (tcollege.textContent == "") {
       document.getElementById("hideableCollege").style.display = "none";
+    }
+
+    if (tschool.textContent == "" && tcollege.textContent == "") {
+      document.querySelector(".templat-container .main-6").display = "none";
+    }
+    if (ttenth.textContent == "" && ttwelth.textContent == "") {
+      document.querySelector(".template-container .main-7").style.display =
+        "none";
     }
     //
     //

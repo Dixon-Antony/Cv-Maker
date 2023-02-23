@@ -378,8 +378,12 @@ p {
 }
 
 .template-container .main-4,
-.template-container .main-5 {
+.template-container .tmain-5 {
   padding: 1rem 6rem;
+}
+
+.template-container .main-8 {
+  margin-top: -2rem;
 }
 
 #download-btn {
@@ -453,6 +457,10 @@ p {
   flex-direction: column;
   list-style: disc;
   color: black;
+}
+
+#tProfiles {
+  list-style: none;
 }
 
 ul,
