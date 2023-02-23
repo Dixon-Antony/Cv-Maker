@@ -25,7 +25,7 @@ $(document).ready(function () {
       placeholder="Enter project language"
       required
     />
-    <a class="remove_button">Del</a>
+    <a class="remove_button darkLink">Del</a>
   </div>`; //New input field html
 
   var projectCounter = 1; //Initial field counter is 1
@@ -57,7 +57,7 @@ $(document).ready(function () {
     placeholder="Enter your technical expertise (comma separated)"
     required
   />
-  <a class="skremove_button">Del</a>
+  <a class="skremove_button darkLink">Del</a>
 </div>`; //New input field html
 
   var skillsCounter = 1; //Initial field counter is 1
@@ -74,6 +74,45 @@ $(document).ready(function () {
     e.preventDefault();
     $(this).parent("div").remove(); //Remove field html
     skillsCounter--; //Decrement field counter
+  });
+
+  //Profiles adder function
+
+  var profaddButton = $(".prof_add_button"); //Add button selector
+  var profwrapper = $("#allProfiles"); //Input field wrapper
+  var proffieldHTML = `<div id="profileDiv" class="profilesDiv">
+  <input
+    class="darkInput"
+    type="text"
+    name="profiles"
+    id="profiles"
+    placeholder="Enter platform"
+    required
+  />
+  <input
+    class="darkInput"
+    type="text"
+    name="profileLink"
+    id="profileLink"
+    placeholder="Enter link"
+    required
+  />
+  <a class="prof_remove_button darkLink">Del</a>
+</div>`; //New input field html
+
+  var profileCounter = 1; //Initial field counter is 1
+  $(profaddButton).click(function () {
+    //Check maximum number of input fields
+    if (profileCounter < maxField) {
+      profileCounter++; //Increment field counter
+      $(profwrapper).append(proffieldHTML); //Add field html
+    }
+  });
+  //Once remove button is clicked
+  $(profwrapper).on("click", ".prof_remove_button", function (e) {
+    e.preventDefault();
+    $(this).parent("div").remove(); //Remove field html
+    profileCounter--; //Decrement field counter
   });
 });
 
@@ -95,16 +134,46 @@ function previewFile() {
   };
 }
 
+let theme = "dark";
+let darkColor = "#33ffc1";
+let lightColor = "#4589eb";
+let color = darkColor;
+
 function switchTheme() {
+  if (theme == "dark") {
+    theme = "light";
+    color = lightColor;
+  } else {
+    theme = "dark";
+    color = darkColor;
+  }
+  console.log(theme);
+
   let body = document.body;
   let navContent = document.getElementById("nav-content");
   let tempMain = document.getElementById("templateMain");
   let labels = document.querySelectorAll(".template-container label");
   let inputs = document.querySelectorAll(".main input");
-  let headings = document.querySelectorAll(".container h1");
+  let headings = document.querySelectorAll("h1");
   let span = document.getElementById("span");
   let textareas = document.querySelectorAll("textarea");
   let mains = document.getElementById("mains");
+  let lists = document.querySelectorAll("ul");
+
+  let main8as = document.querySelectorAll(".main-8 a");
+  let main5as = document.querySelectorAll(".main-5 a");
+
+  for (let main8a of main8as) {
+    main8a.classList.toggle("darkLink");
+  }
+
+  for (let main5a of main5as) {
+    main5a.classList.toggle("darkLink");
+  }
+
+  for (let list of lists) {
+    list.classList.toggle("darkInput");
+  }
 
   for (let textarea of textareas) {
     textarea.classList.toggle("darkInput");
@@ -134,19 +203,21 @@ function getInputs() {
   // console.log(e);
 
   var allReq = document.querySelectorAll("[required]");
-  for (var i of allReq) {
-    i.style.border = "none";
-    if (i.value == "") {
-      alert("Please Fill in all required fields *");
-      i.style.border = "1px solid aquamarine";
-      i.scrollIntoView({
-        behavior: "auto",
-        block: "center",
-        inline: "center",
-      });
-      return;
-    }
-  }
+  // for (var i of allReq) {
+  //   i.style.border = "none";
+  //   if (i.value == "") {
+  //     alert("Please Fill in all required fields *");
+
+  //     i.style.border = `1px solid #FC5858`;
+
+  //     i.scrollIntoView({
+  //       behavior: "auto",
+  //       block: "center",
+  //       inline: "center",
+  //     });
+  //     return;
+  //   }
+  // }
 
   if (confirm("Are you sure, you want to generate your resume ?")) {
     let gen = document.getElementById("generate");
@@ -178,6 +249,9 @@ function getInputs() {
 
     let skills = document.querySelectorAll("#allSkills input");
     //
+    let profiles = document.querySelectorAll("#allProfiles input");
+    //
+
     let hobbies = document.getElementById("hobbies");
     //
     //Template Contents
@@ -226,6 +300,20 @@ function getInputs() {
       hideableSkills.style.display = "none";
     }
     //
+    var tProfiles = $("#tProfiles");
+    if (profiles[0].value) {
+      for (let i = 0; i < profiles.length; i += 2) {
+        var profilesContent = `<li><a target='_blank' href='${
+          profiles[i + 1].value
+        }'>${profiles[i].value}</a></li>`;
+        console.log(profilesContent);
+        $(tProfiles).append(profilesContent);
+      }
+    } else {
+      var hideableProfiles = document.getElementById("hideableProfiles");
+      hideableProfiles.style.display = "none";
+    }
+    //
     // var thobbies = $("#thobbies");
     // if (hobbies[0].value) {
     //   for (let i = 0; i < hobbies.length; i++) {
@@ -238,41 +326,43 @@ function getInputs() {
     //   hideableHobbies.style.display = "none";
     // }
     tfname.textContent = fname.value;
-    console.log(tfname.textContent);
+    // console.log(tfname.textContent);
     tjob.textContent = job.value;
-    console.log(tjob.textContent);
+    // console.log(tjob.textContent);
     tbday.textContent = bday.value;
-    console.log(tbday.textContent);
+    // console.log(tbday.textContent);
     tcontact.textContent = contact.value;
-    console.log(tcontact.textContent);
+    // console.log(tcontact.textContent);
     temail.textContent = email.value;
-    console.log(temail.textContent);
+    // console.log(temail.textContent);
     toldCompany.textContent = oldCompany.value;
-    console.log(toldCompany.textContent);
+    // console.log(toldCompany.textContent);
     toldjob.textContent = oldjob.value;
-    console.log(toldjob.textContent);
+    // console.log(toldjob.textContent);
     tstartDate.textContent = startDate.value;
-    console.log(tstartDate.textContent);
+    // console.log(tstartDate.textContent);
     tendDate.textContent = endDate.value;
-    console.log(tendDate.textContent);
+    // console.log(tendDate.textContent);
     tjobdesc.textContent = jobdesc.value;
-    console.log(tjobdesc.textContent);
+    // console.log(tjobdesc.textContent);
     ttellme.textContent = tellme.value;
-    console.log(ttellme.textContent);
+    // console.log(ttellme.textContent);
     tschool.textContent = school.value;
-    console.log(tschool.textContent);
+    // console.log(tschool.textContent);
     tcollege.textContent = college.value;
-    console.log(tcollege.textContent);
+    // console.log(tcollege.textContent);
     ttenth.textContent = tenth.value;
-    console.log(ttenth.textContent);
+    // console.log(ttenth.textContent);
     ttwelth.textContent = twelth.value;
-    console.log(ttwelth.textContent);
+    // console.log(ttwelth.textContent);
     tcgpa.textContent = cgpa.value;
-    console.log(tcgpa.textContent);
+    // console.log(tcgpa.textContent);
+
     // tprojects.textContent = projects.value;
     // tskills.textContent = skills.value;
+
     thobbies.textContent = hobbies.value;
-    console.log(thobbies.textContent);
+    // console.log(thobbies.textContent);
 
     if (thobbies.textContent == "") {
       document.getElementById("hideableHobbies").style.display = "none";
@@ -292,8 +382,18 @@ function getInputs() {
       document.getElementById("hideableTwelth").style.display = "none";
     }
     // else {
-    //   document.getElementById("hideableTenth").style.display = "block";
+    //   document.getElementById("hideableTwelth").style.display = "block";
     // }
+    if (tschool.textContent == "") {
+      document.getElementById("hideableSchool").style.display = "none";
+    }
+    //
+    //
+    if (tcollege.textContent == "") {
+      document.getElementById("hideableCollege").style.display = "none";
+    }
+    //
+    //
     if (
       toldCompany.textContent == "" &&
       toldjob.textContent == "" &&
@@ -332,7 +432,7 @@ function getInputs() {
 function downloadPDF() {
   html2canvas(document.querySelector("#templateMain")).then((canvas) => {
     let base64image = canvas.toDataURL("image/png");
-    console.log(base64image);
+    // console.log(base64image);
 
     let pdf;
 

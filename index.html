@@ -33,7 +33,7 @@
       <div id="nav-content" class="nav-content navDark">
         <h2><span id="span" class="spanDark">Cv</span> Maker</h2>
       </div>
-      <ul>
+      <ul class="darkList">
         <li>
           <a href="#container">Start Building</a>
         </li>
@@ -148,12 +148,25 @@
               />
             </div>
           </div>
+          <div class="section-4 section">
+            <div>
+              <label for="address">Residential Address : </label><br />
+              <textarea
+                class="darkInput"
+                name="address"
+                id="address"
+                rows="5"
+                placeholder="Enter your address ..."
+                required
+              ></textarea>
+            </div>
+          </div>
         </div>
         <br />
         <hr />
         <!-- Main-2 -->
         <!-- .... -->
-        <h1 class="part-2 darkHeading">Profle Summary <br /></h1>
+        <h1 class="part-2 darkHeading">Profile Details <br /></h1>
 
         <div class="main-5">
           <div>
@@ -168,6 +181,31 @@
               placeholder="Tell us about yourself ..."
               required
             ></textarea>
+          </div>
+          <br />
+          <div>
+            <label for="profiles">Social Media Profiles :</label><br /><br />
+            <div id="allProfiles">
+              <div id="profileDiv" class="profilesDiv">
+                <input
+                  class="darkInput"
+                  type="text"
+                  name="profiles"
+                  id="profiles"
+                  placeholder="Enter platform (say LinkedIn)"
+                  required
+                />
+                <input
+                  class="darkInput"
+                  type="text"
+                  name="profileLink"
+                  id="profileLink"
+                  placeholder="Enter profile link"
+                  required
+                />
+                <a class="darkLink prof_add_button">Add</a>
+              </div>
+            </div>
           </div>
         </div>
         <hr />
@@ -333,7 +371,7 @@ Project2 - (Languages Used)"
                   placeholder="Enter project language"
                   required
                 />
-                <a class="add_button">Add</a>
+                <a class="add_button darkLink">Add</a>
               </div>
             </div>
           </div>
@@ -350,7 +388,7 @@ Project2 - (Languages Used)"
                   placeholder="Enter your technical expertise"
                   required
                 />
-                <a class="skadd_button">Add</a>
+                <a class="skadd_button darkLink">Add</a>
               </div>
             </div>
           </div>
@@ -406,7 +444,7 @@ Project2 - (Languages Used)"
       gdfgfgdfgd
         fg -->
 
-    <div id="template-container" class="template-container show-template">
+    <div class="template-container show-template">
       <div id="templateMain" class="main darkTemplate">
         <h1 class="part-1 darkHeading">
           Personal Info
@@ -519,10 +557,17 @@ Project2 - (Languages Used)"
               distinctio optio aperiam enim architecto blanditiis!
             </p>
           </div>
+          <div id="hideableProfiles">
+            <label id="tlabel" class="darkLabel" for="tProfiles"
+              >Profiles : </label
+            ><br />
+            <ul class="darkList" id="tProfiles"></ul>
+            <!-- <h3 name="tProfiles" id="tProfiles">Python, HTml, CSS, JavaScript</h3> -->
+          </div>
         </div>
 
         <div class="main-6">
-          <div>
+          <div id="hideableSchool">
             <label id="tlabel" class="darkLabel" for="tschool"
               >School Name : </label
             ><br />
@@ -530,7 +575,7 @@ Project2 - (Languages Used)"
               Kanchi Sri Sankara Academy M.H.S.S
             </h3>
           </div>
-          <div>
+          <div id="hideableCollege">
             <label id="tlabel" class="darkLabel" for="tcollege"
               >College Name : </label
             ><br />
@@ -565,7 +610,7 @@ Project2 - (Languages Used)"
             <label id="tlabel" class="darkLabel" for="tprojects"
               >Projects : </label
             ><br />
-            <ul id="tprojects"></ul>
+            <ul class="darkList" id="tprojects"></ul>
             <!-- <h3 name="tprojects" id="tprojects">
               Movie Recommendation System, Events Management System
             </h3> -->
@@ -574,7 +619,7 @@ Project2 - (Languages Used)"
           <div id="hideableSkills">
             <label id="tlabel" class="darkLabel" for="tskills">Skills : </label
             ><br />
-            <ul id="tskills"></ul>
+            <ul class="darkList" id="tskills"></ul>
             <!-- <h3 name="tskills" id="tskills">Python, HTml, CSS, JavaScript</h3> -->
           </div>
           <br />
