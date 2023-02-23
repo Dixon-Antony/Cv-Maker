@@ -217,21 +217,21 @@ function getInputs() {
   // console.log(e);
 
   var allReq = document.querySelectorAll("[required]");
-  for (var i of allReq) {
-    i.style.border = "none";
-    if (i.value == "") {
-      alert("Please Fill in all required fields *");
+  // for (var i of allReq) {
+  //   i.style.border = "none";
+  //   if (i.value == "") {
+  //     alert("Please Fill in all required fields *");
 
-      i.style.border = `1px solid #FC5858`;
+  //     i.style.border = `1px solid #FC5858`;
 
-      i.scrollIntoView({
-        behavior: "auto",
-        block: "center",
-        inline: "center",
-      });
-      return;
-    }
-  }
+  //     i.scrollIntoView({
+  //       behavior: "auto",
+  //       block: "center",
+  //       inline: "center",
+  //     });
+  //     return;
+  //   }
+  // }
 
   if (confirm("Are you sure, you want to generate your resume ?")) {
     let gen = document.getElementById("generate");
@@ -414,13 +414,26 @@ function getInputs() {
     }
 
     if (tschool.textContent == "" && tcollege.textContent == "") {
-      document.querySelector(".templat-container .main-6").display = "none";
+      document.querySelector(".template-container .main-6").display = "none";
     }
     if (ttenth.textContent == "" && ttwelth.textContent == "") {
       document.querySelector(".template-container .main-7").style.display =
         "none";
     }
-    //
+    // Image Validation and template correction
+
+    let main1 = document.querySelector(".template-container .main-1");
+    let section2 = document.querySelector(
+      ".template-container .main-1 .section-2"
+    );
+    let pic = document.getElementById("timg");
+    if (pic.src.includes("assets/img/default.jpg")) {
+      document.querySelector(".template-container .img-div").style.display =
+        "none";
+      main1.style.gridTemplateColumns = "1fr";
+      section2.style.paddingLeft = "7rem";
+    }
+
     //
     if (
       toldCompany.textContent == "" &&
