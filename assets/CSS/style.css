@@ -447,15 +447,23 @@ p {
 
 #tprojects,
 #tskills,
-#thobbies,
 #tProfiles {
   padding: 1rem;
   display: flex;
   flex-direction: column;
   list-style: disc;
+  color: black;
+}
+
+ul,
+#tProfiles > li > a {
+  color: black;
+}
+
+#thobbies {
   color: white;
 }
 
 .darkList {
-  color: black !important;
+  color: white !important;
 }

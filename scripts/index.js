@@ -156,12 +156,19 @@ function switchTheme() {
   let inputs = document.querySelectorAll(".main input");
   let headings = document.querySelectorAll("h1");
   let span = document.getElementById("span");
+  let hobb = document.getElementById("thobbies");
   let textareas = document.querySelectorAll("textarea");
   let mains = document.getElementById("mains");
   let lists = document.querySelectorAll("ul");
 
+  let splProfiles = document.querySelectorAll("#tProfiles > li > a");
+
   let main8as = document.querySelectorAll(".main-8 a");
   let main5as = document.querySelectorAll(".main-5 a");
+
+  for (let splProfile of splProfiles) {
+    splProfile.classList.toggle("darkList");
+  }
 
   for (let main8a of main8as) {
     main8a.classList.toggle("darkLink");
@@ -172,7 +179,7 @@ function switchTheme() {
   }
 
   for (let list of lists) {
-    list.classList.toggle("darkInput");
+    list.classList.toggle("darkList");
   }
 
   for (let textarea of textareas) {
@@ -196,6 +203,13 @@ function switchTheme() {
   tempMain.classList.toggle("darkTemplate");
   span.classList.toggle("spanDark");
   mains.classList.toggle("darkMain");
+  // hobb.classList.toggle("darklist");
+
+  if (theme == "light") {
+    hobb.style.color = "black";
+  } else {
+    hobb.style.color = "white";
+  }
 }
 
 function getInputs() {
@@ -233,6 +247,7 @@ function getInputs() {
     let bday = document.getElementById("bday");
     let contact = document.getElementById("contact");
     let email = document.getElementById("email");
+    let address = document.getElementById("address");
     let oldCompany = document.getElementById("oldCompany");
     let oldjob = document.getElementById("oldjob");
     let startDate = document.getElementById("startDate");
@@ -261,6 +276,7 @@ function getInputs() {
     let tbday = document.getElementById("tbday");
     let tcontact = document.getElementById("tcontact");
     let temail = document.getElementById("temail");
+    let taddress = document.getElementById("taddress");
     let toldCompany = document.getElementById("toldCompany");
     let toldjob = document.getElementById("toldjob");
     let tstartDate = document.getElementById("tstartDate");
@@ -303,7 +319,7 @@ function getInputs() {
     var tProfiles = $("#tProfiles");
     if (profiles[0].value) {
       for (let i = 0; i < profiles.length; i += 2) {
-        var profilesContent = `<li><a target='_blank' href='${
+        var profilesContent = `<li><a target='_blank' class='darkList' href='${
           profiles[i + 1].value
         }'>${profiles[i].value}</a></li>`;
         console.log(profilesContent);
@@ -335,6 +351,8 @@ function getInputs() {
     // console.log(tcontact.textContent);
     temail.textContent = email.value;
     // console.log(temail.textContent);
+    taddress.textContent = address.value;
+    // console.log(taddress.textContent);
     toldCompany.textContent = oldCompany.value;
     // console.log(toldCompany.textContent);
     toldjob.textContent = oldjob.value;
