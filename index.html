@@ -40,7 +40,7 @@
         <li>
           <a href="javascript:void(0)" onclick="switchTheme()">Switch Theme</a>
         </li>
-        <li><a href="">Refresh</a></li>
+        <li><a href="index.html">Refresh</a></li>
       </ul>
     </nav>
     <!-- <div class="space"></div> -->
@@ -51,117 +51,135 @@
     </div>
     <div id="container" class="container">
       <div class="space"></div>
-      <form>
-        <div id="mains" class="main darkMain">
-          <h1 class="part-1 darkHeading">
-            Personal Info
-            <br />
-            <hr />
-            <br />
-          </h1>
-          <div class="main-1">
-            <div class="img-div">
-              <img
-                id="fimg"
-                class="img"
-                src="assets/img/default.jpg"
-                alt="Image preview..."
+
+      <div id="mains" class="main darkMain">
+        <h1 class="part-1 darkHeading">
+          Personal Info
+          <br />
+
+          <br />
+        </h1>
+        <div class="main-1">
+          <div class="img-div">
+            <img
+              id="fimg"
+              class="img"
+              src="assets/img/default.jpg"
+              alt="Image preview..."
+            />
+          </div>
+          <div class="section-2 section">
+            <div>
+              <label for="fname">Name : </label><br />
+              <input
+                class="darkInput"
+                type="text"
+                name="fname"
+                id="fname"
+                placeholder="Enter your name"
+                required
               />
             </div>
-            <div class="section-2 section">
-              <div>
-                <label for="fname">Name : </label><br />
-                <input
-                  class="darkInput"
-                  type="text"
-                  name="fname"
-                  id="fname"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-              <div>
-                <label for="job">Job title : </label><br />
-                <input
-                  class="darkInput"
-                  type="text"
-                  name="job"
-                  id="job"
-                  placeholder="Enter your job title"
-                  required
-                />
-              </div>
-              <div style="margin-top: 3rem">
-                <label for="img-field" name="img-field"
-                  >Profile Picture
-                  <i class="fa fa-upload" aria-hidden="true"></i> </label
-                ><br />
-                <input
-                  id="img-field"
-                  type="file"
-                  name="img-field"
-                  accept="image/*"
-                  onchange="previewFile()"
-                  required
-                />
-              </div>
+            <div>
+              <label for="job">Job title : </label><br />
+              <input
+                class="darkInput"
+                type="text"
+                name="job"
+                id="job"
+                placeholder="Enter your job title"
+                required
+              />
             </div>
-
-            <div class="section-3 section">
-              <div>
-                <label for="bday"
-                  ><i class="fa fa-birthday-cake fa-2x" aria-hidden="true">
-                    :</i
-                  >
-                </label>
-                <input
-                  class="darkInput"
-                  type="date"
-                  name="bday"
-                  id="bday"
-                  required
-                />
-              </div>
-
-              <div>
-                <label for="contact"
-                  ><i class="fa-solid fa-address-book fa-2x" aria-hidden="true">
-                    :</i
-                  >
-                </label>
-                <input
-                  class="darkInput"
-                  type="tel"
-                  name="contact"
-                  id="contact"
-                  pattern="[0-9]{10}"
-                  placeholder="Enter your Contact no."
-                  required
-                />
-              </div>
-              <div>
-                <label for="email"
-                  ><i class="fa-solid fa-envelope fa-2x" aria-hidden="true">
-                    :</i
-                  >
-                </label>
-                <input
-                  class="darkInput"
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Enter your E-mail id"
-                  required
-                />
-              </div>
+            <div style="margin-top: 3rem">
+              <label for="img-field" name="img-field"
+                >Profile Picture
+                <i class="fa fa-upload" aria-hidden="true"></i> </label
+              ><br />
+              <input
+                id="img-field"
+                type="file"
+                name="img-field"
+                accept="image/*"
+                onchange="previewFile()"
+              />
             </div>
           </div>
-          <!-- Main-2 -->
-          <!-- .... -->
-          <h1 class="part-2 darkHeading">
-            Previous Job <br />
-            <hr />
-          </h1>
+
+          <div class="section-3 section">
+            <div>
+              <label for="bday"
+                ><i class="fa fa-birthday-cake fa-2x" aria-hidden="true"> :</i>
+              </label>
+              <input
+                class="darkInput"
+                type="date"
+                name="bday"
+                id="bday"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="contact"
+                ><i class="fa-solid fa-address-book fa-2x" aria-hidden="true">
+                  :</i
+                >
+              </label>
+              <input
+                class="darkInput"
+                type="tel"
+                name="contact"
+                id="contact"
+                placeholder="Enter your Contact no."
+                required
+              />
+            </div>
+            <div>
+              <label for="email"
+                ><i class="fa-solid fa-envelope fa-2x" aria-hidden="true"> :</i>
+              </label>
+              <input
+                class="darkInput"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your E-mail id"
+              />
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <!-- Main-2 -->
+        <!-- .... -->
+        <h1 class="part-2 darkHeading">Profle Summary <br /></h1>
+
+        <div class="main-5">
+          <div>
+            <label for="tellme">Profile Summary : (About You) </label
+            ><br /><br />
+            <textarea
+              class="darkInput"
+              name="tellme"
+              id="tellme"
+              cols="150"
+              rows="10"
+              placeholder="Tell us about yourself ..."
+              required
+            ></textarea>
+          </div>
+        </div>
+        <hr />
+        <br />
+        <details open>
+          <summary>
+            <h1 class="part-3 darkHeading">
+              Work Experience (optional) <br />
+            </h1>
+            &nbsp;
+          </summary>
+
           <div class="main-2">
             <div>
               <label for="oldCompany">Previous Company Name : </label
@@ -220,97 +238,74 @@
               ></textarea>
             </div>
           </div>
-
-          <h1 class="part-3 darkHeading">
-            Profile Details <br />
-            <hr />
-          </h1>
-          <div class="main-5">
-            <div>
-              <label for="tellme">Profile Summary : (About You) </label
-              ><br /><br />
-              <textarea
-                class="darkInput"
-                name="tellme"
-                id="tellme"
-                cols="150"
-                rows="10"
-                placeholder="Tell us about yourself ..."
-                required
-              ></textarea>
-            </div>
+        </details>
+        <hr />
+        <h1 class="part-4 darkHeading">Educational Information <br /></h1>
+        <div class="main-6">
+          <div>
+            <label for="school">School Name : </label><br /><br />
+            <input
+              class="darkInput"
+              type="text"
+              name="school"
+              id="school"
+              placeholder="Enter your institution name"
+            />
           </div>
-
-          <div class="main-6">
-            <div>
-              <label for="school">School Name : </label><br /><br />
-              <input
-                class="darkInput"
-                type="text"
-                name="school"
-                id="school"
-                placeholder="Enter your institution name"
-                required
-              />
-            </div>
-            <div>
-              <label for="college">College Name :</label><br /><br />
-              <input
-                class="darkInput"
-                type="text"
-                name="college"
-                id="college"
-                placeholder="Enter your institution name"
-                required
-              />
-            </div>
+          <div>
+            <label for="college">College Name :</label><br /><br />
+            <input
+              class="darkInput"
+              type="text"
+              name="college"
+              id="college"
+              placeholder="Enter your institution name"
+            />
           </div>
-          <div class="main-7">
-            <div>
-              <label for="tenth">SSLC Score : (in %)</label><br /><br />
-              <input
-                class="darkInput"
-                type="number"
-                name="tenth"
-                id="tenth"
-                min="0"
-                max="100"
-                placeholder="Enter in %"
-                required
-              />
-            </div>
-            <div>
-              <label for="twelth">HSC Score : (in %)</label><br /><br />
-              <input
-                class="darkInput"
-                type="number"
-                name="twelth"
-                id="twelth"
-                min="0"
-                max="100"
-                placeholder="Enter in %"
-                required
-              />
-            </div>
+        </div>
+        <div class="main-7">
+          <div>
+            <label for="tenth">10th Score : (in %)</label><br /><br />
+            <input
+              class="darkInput"
+              type="number"
+              name="tenth"
+              id="tenth"
+              min="0"
+              max="100"
+              placeholder="Enter in %"
+            />
           </div>
-          <div class="main-8">
-            <div>
-              <label for="cgpa">University CGPA : (out of 10)</label
-              ><br /><br />
-              <input
-                class="darkInput"
-                type="text"
-                name="cgpa"
-                id="cgpa"
-                placeholder="Enter your University CGPA (out of 10)"
-                required
-              />
-            </div>
-            <br />
-            <div>
-              <label for="projects">Projects : (title and language used)</label
-              ><br /><br />
-              <textarea
+          <div>
+            <label for="twelth">12th Score : (in %)</label><br /><br />
+            <input
+              class="darkInput"
+              type="number"
+              name="twelth"
+              id="twelth"
+              min="0"
+              max="100"
+              placeholder="Enter in %"
+            />
+          </div>
+        </div>
+        <div class="main-8">
+          <div>
+            <label for="cgpa">University CGPA : (out of 10)</label><br /><br />
+            <input
+              class="darkInput"
+              type="text"
+              name="cgpa"
+              id="cgpa"
+              placeholder="Enter your University CGPA (out of 10)"
+              required
+            />
+          </div>
+          <br />
+          <div>
+            <label for="projects">Projects : (title and language used)</label
+            ><br /><br />
+            <!-- <textarea
                 class="darkInput"
                 cols="150"
                 rows="5"
@@ -319,57 +314,81 @@
                 placeholder="Project1 - (Languages Used)
 Project2 - (Languages Used)"
                 required
-              ></textarea>
-            </div>
-            <br />
-            <div>
-              <label for="skills">Skills : (technical)</label><br /><br />
-              <input
-                class="darkInput"
-                type="text"
-                name="skills"
-                id="skills"
-                placeholder="Enter your technical expertise (comma separated)"
-                required
-              />
-            </div>
-            <br />
-            <div>
-              <label for="hobbies">Hobbies :</label><br /><br />
-              <input
-                class="darkInput"
-                type="text"
-                name="hobbies"
-                id="hobbies"
-                placeholder="Enter your hobbies (comma separated)"
-                required
-              />
+              ></textarea> -->
+            <div id="allProjects">
+              <div id="projectDiv" class="projectsDiv">
+                <input
+                  class="darkInput"
+                  type="text"
+                  name="projects"
+                  id="projects"
+                  placeholder="Enter project title"
+                  required
+                />
+                <input
+                  class="darkInput"
+                  type="text"
+                  name="projectLang"
+                  id="projectLang"
+                  placeholder="Enter project language"
+                  required
+                />
+                <a class="add_button">Add</a>
+              </div>
             </div>
           </div>
-          <br /><br />
-          <div class="generate-btn">
-            <div>
-              <input
-                class="btn"
-                value="Generate Resume"
-                type="submit"
-                name="generate"
-                id="generate"
-                onclick="getInputs()"
-              />
+          <br />
+          <div>
+            <label for="skills">Skills : (technical)</label><br /><br />
+            <div id="allSkills">
+              <div id="skillDiv" class="skillsDiv">
+                <input
+                  class="darkInput"
+                  type="text"
+                  name="skills"
+                  id="skills"
+                  placeholder="Enter your technical expertise"
+                  required
+                />
+                <a class="skadd_button">Add</a>
+              </div>
             </div>
-            <div>
-              <input
-                class="btn"
-                value="Clear Content"
-                type="reset"
-                name="clear"
-                id="clear"
-              />
-            </div>
+          </div>
+          <br />
+          <div>
+            <label for="hobbies">Hobbies : (optional)</label><br /><br />
+            <input
+              class="darkInput"
+              type="text"
+              name="hobbies"
+              id="hobbies"
+              placeholder="Enter your hobbies (comma separated)"
+            />
           </div>
         </div>
-      </form>
+        <br /><br />
+        <div class="generate-btn">
+          <div>
+            <input
+              class="btn"
+              value="Generate Resume"
+              type="submit"
+              name="generate"
+              id="generate"
+              onclick="getInputs()"
+            />
+          </div>
+          <div>
+            <input
+              class="btn"
+              value="Clear Content"
+              type="reset"
+              name="clear"
+              id="clear"
+            />
+          </div>
+        </div>
+      </div>
     </div>
     <div class="space"></div>
     <!-- sdfsf
@@ -387,14 +406,13 @@ Project2 - (Languages Used)"
       gdfgfgdfgd
         fg -->
 
-    <div class="template-container show-template">
+    <div id="template-container" class="template-container show-template">
       <div id="templateMain" class="main darkTemplate">
         <h1 class="part-1 darkHeading">
           Personal Info
           <br />
-          <hr />
         </h1>
-        <div class="main-1">
+        <div id="scrollTo" class="main-1">
           <div class="img-div">
             <img
               id="timg"
@@ -429,7 +447,7 @@ Project2 - (Languages Used)"
               <label id="tlabel" class="darkLabel" for="temail"
                 >E-mail :
               </label>
-              <h3 name="temail" id="temail">dixon@gmail.com</h3>
+              <h3 name="temail" id="temail"></h3>
             </div>
           </div>
         </div>
@@ -522,15 +540,15 @@ Project2 - (Languages Used)"
           </div>
         </div>
         <div class="main-7">
-          <div>
+          <div id="hideableTenth">
             <label id="tlabel" class="darkLabel" for="ttenth"
-              >SSLC Score : (in %)</label
+              >10th Score : (in %)</label
             ><br />
             <h3 name="ttenth" id="ttenth">99 %</h3>
           </div>
-          <div>
+          <div id="hideableTwelth">
             <label id="tlabel" class="darkLabel" for="ttwelth"
-              >HSC Score : (in %)</label
+              >10th Score : (in %)</label
             ><br />
             <h3 name="ttwelth" id="ttwelth">88.5 %</h3>
           </div>
@@ -543,22 +561,24 @@ Project2 - (Languages Used)"
             <h3 name="tcgpa" id="tcgpa">9.23 / 10</h3>
           </div>
           <br />
-          <div>
+          <div id="hideableProjects">
             <label id="tlabel" class="darkLabel" for="tprojects"
               >Projects : </label
             ><br />
-            <h3 name="tprojects" id="tprojects">
+            <ul id="tprojects"></ul>
+            <!-- <h3 name="tprojects" id="tprojects">
               Movie Recommendation System, Events Management System
-            </h3>
+            </h3> -->
           </div>
           <br />
-          <div>
+          <div id="hideableSkills">
             <label id="tlabel" class="darkLabel" for="tskills">Skills : </label
             ><br />
-            <h3 name="tskills" id="tskills">Python, HTml, CSS, JavaScript</h3>
+            <ul id="tskills"></ul>
+            <!-- <h3 name="tskills" id="tskills">Python, HTml, CSS, JavaScript</h3> -->
           </div>
           <br />
-          <div>
+          <div id="hideableHobbies">
             <label id="tlabel" class="darkLabel" for="thobbies">Hobbies :</label
             ><br />
             <h3 name="thobbies" id="thobbies">

@@ -1,5 +1,82 @@
 window.jsPDF = window.jspdf.jsPDF;
 
+$(document).ready(function () {
+  window.jsPDF = window.jspdf.jsPDF;
+  var maxField = 4; //Input fields increment limitation
+
+  // Projects Adder Function
+
+  var addButton = $(".add_button"); //Add button selector
+  var wrapper = $("#allProjects"); //Input field wrapper
+  var fieldHTML = `<div id="projectDiv" class="projectsDiv">
+    <input
+      class="darkInput"
+      type="text"
+      name="projects"
+      id="projects"
+      placeholder="Enter project title"
+      required
+    />
+    <input
+      class="darkInput"
+      type="text"
+      name="projectLang"
+      id="projectLang"
+      placeholder="Enter project language"
+      required
+    />
+    <a class="remove_button">Del</a>
+  </div>`; //New input field html
+
+  var projectCounter = 1; //Initial field counter is 1
+  $(addButton).click(function () {
+    //Check maximum number of input fields
+    if (projectCounter < maxField) {
+      projectCounter++; //Increment field counter
+      $(wrapper).append(fieldHTML); //Add field html
+    }
+  });
+
+  //Once remove button is clicked
+  $(wrapper).on("click", ".remove_button", function (e) {
+    e.preventDefault();
+    $(this).parent("div").remove(); //Remove field html
+    projectCounter--; //Decrement field counter
+  });
+
+  //Skills Adder Function
+
+  var skaddButton = $(".skadd_button"); //Add button selector
+  var skwrapper = $("#allSkills"); //Input field wrapper
+  var skfieldHTML = `<div id="skillDiv" class="skillsDiv">
+  <input
+    class="darkInput"
+    type="text"
+    name="skills"
+    id="skills"
+    placeholder="Enter your technical expertise (comma separated)"
+    required
+  />
+  <a class="skremove_button">Del</a>
+</div>`; //New input field html
+
+  var skillsCounter = 1; //Initial field counter is 1
+  $(skaddButton).click(function () {
+    //Check maximum number of input fields
+    if (skillsCounter < maxField) {
+      skillsCounter++; //Increment field counter
+      $(skwrapper).append(skfieldHTML); //Add field html
+    }
+  });
+
+  //Once remove button is clicked
+  $(skwrapper).on("click", ".skremove_button", function (e) {
+    e.preventDefault();
+    $(this).parent("div").remove(); //Remove field html
+    skillsCounter--; //Decrement field counter
+  });
+});
+
 function previewFile() {
   var preview = document.getElementById("fimg");
   var file = document.querySelector("input[type=file]").files[0];
@@ -53,10 +130,20 @@ function switchTheme() {
 }
 
 function getInputs() {
-  let allReq = document.querySelectorAll("[required]");
-  for (let i of allReq) {
+  // e.preventDefault();
+  // console.log(e);
+
+  var allReq = document.querySelectorAll("[required]");
+  for (var i of allReq) {
+    i.style.border = "none";
     if (i.value == "") {
       alert("Please Fill in all required fields *");
+      i.style.border = "1px solid aquamarine";
+      i.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "center",
+      });
       return;
     }
   }
@@ -86,10 +173,15 @@ function getInputs() {
     let tenth = document.getElementById("tenth");
     let twelth = document.getElementById("twelth");
     let cgpa = document.getElementById("cgpa");
-    let projects = document.getElementById("projects");
-    let skills = document.getElementById("skills");
-    let hobbies = document.getElementById("hobbies");
+    //
+    let projects = document.querySelectorAll("#allProjects input");
 
+    let skills = document.querySelectorAll("#allSkills input");
+    //
+    let hobbies = document.getElementById("hobbies");
+    //
+    //Template Contents
+    //
     let tfname = document.getElementById("tfname");
     let tjob = document.getElementById("tjob");
     let tbday = document.getElementById("tbday");
@@ -106,30 +198,102 @@ function getInputs() {
     let ttenth = document.getElementById("ttenth");
     let ttwelth = document.getElementById("ttwelth");
     let tcgpa = document.getElementById("tcgpa");
-    let tprojects = document.getElementById("tprojects");
-    let tskills = document.getElementById("tskills");
-    let thobbies = document.getElementById("thobbies");
+    //
+    var tprojects = $("#tprojects");
 
+    if (projects[0].value) {
+      for (let i = 0; i < projects.length; i += 2) {
+        var projectContent = `<li>${projects[i].value} - ( ${
+          projects[i + 1].value
+        } )</li>`;
+        console.log(projectContent);
+        $(tprojects).append(projectContent);
+      }
+    } else {
+      var hideableProjects = document.getElementById("hideableProjects");
+      hideableProjects.style.display = "none";
+    }
+    //
+    var tskills = $("#tskills");
+    if (skills[0].value) {
+      for (let i = 0; i < skills.length; i++) {
+        var skillsContent = `<li>${skills[i].value}</li>`;
+        console.log(skillsContent);
+        $(tskills).append(skillsContent);
+      }
+    } else {
+      var hideableSkills = document.getElementById("hideableSkills");
+      hideableSkills.style.display = "none";
+    }
+    //
+    // var thobbies = $("#thobbies");
+    // if (hobbies[0].value) {
+    //   for (let i = 0; i < hobbies.length; i++) {
+    //     var hobbiesContent = `<li>${hobbies[i].value}</li>`;
+    //     console.log(hobbiesContent);
+    //     $(thobbies).append(hobbiesContent);
+    //   }
+    // } else {
+    //   var hideableHobbies = document.getElementById("hideableHobbies");
+    //   hideableHobbies.style.display = "none";
+    // }
     tfname.textContent = fname.value;
+    console.log(tfname.textContent);
     tjob.textContent = job.value;
+    console.log(tjob.textContent);
     tbday.textContent = bday.value;
+    console.log(tbday.textContent);
     tcontact.textContent = contact.value;
+    console.log(tcontact.textContent);
     temail.textContent = email.value;
+    console.log(temail.textContent);
     toldCompany.textContent = oldCompany.value;
+    console.log(toldCompany.textContent);
     toldjob.textContent = oldjob.value;
+    console.log(toldjob.textContent);
     tstartDate.textContent = startDate.value;
+    console.log(tstartDate.textContent);
     tendDate.textContent = endDate.value;
+    console.log(tendDate.textContent);
     tjobdesc.textContent = jobdesc.value;
+    console.log(tjobdesc.textContent);
     ttellme.textContent = tellme.value;
+    console.log(ttellme.textContent);
     tschool.textContent = school.value;
+    console.log(tschool.textContent);
     tcollege.textContent = college.value;
+    console.log(tcollege.textContent);
     ttenth.textContent = tenth.value;
+    console.log(ttenth.textContent);
     ttwelth.textContent = twelth.value;
+    console.log(ttwelth.textContent);
     tcgpa.textContent = cgpa.value;
-    tprojects.textContent = projects.value;
-    tskills.textContent = skills.value;
+    console.log(tcgpa.textContent);
+    // tprojects.textContent = projects.value;
+    // tskills.textContent = skills.value;
     thobbies.textContent = hobbies.value;
+    console.log(thobbies.textContent);
 
+    if (thobbies.textContent == "") {
+      document.getElementById("hideableHobbies").style.display = "none";
+    }
+    // else {
+    //   document.getElementById("hideableHobbies").style.display = "block";
+    // }
+
+    if (ttenth.textContent == "") {
+      document.getElementById("hideableTenth").style.display = "none";
+    }
+    // else {
+    //   document.getElementById("hideableTenth").style.display = "block";
+    // }
+
+    if (ttwelth.textContent == "") {
+      document.getElementById("hideableTwelth").style.display = "none";
+    }
+    // else {
+    //   document.getElementById("hideableTenth").style.display = "block";
+    // }
     if (
       toldCompany.textContent == "" &&
       toldjob.textContent == "" &&
@@ -155,6 +319,11 @@ function getInputs() {
       prevMain3.style.display = "none";
       prevMain4.style.display = "none";
     }
+    document.getElementById("scrollTo").scrollIntoView({
+      behavior: "auto",
+      block: "center",
+      inline: "center",
+    });
   } else {
     return;
   }
