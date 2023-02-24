@@ -391,6 +391,11 @@ p {
   margin-top: -2rem;
 }
 
+#ttellme,
+#tjobdesc {
+  padding: 0 3rem;
+}
+
 #download-btn {
   display: inline-block;
   font-family: Maiandra GD;
@@ -481,4 +486,8 @@ ul,
 
 .darkList {
   color: white !important;
+}
+
+.template-container hr {
+  color: white;
 }

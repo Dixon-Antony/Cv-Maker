@@ -188,7 +188,7 @@ function switchTheme() {
   let tempMain = document.getElementById("templateMain");
   let labels = document.querySelectorAll(".template-container label");
   let inputs = document.querySelectorAll(".main input");
-  let headings = document.querySelectorAll("h1");
+  let headings = document.querySelectorAll(".main h1");
   let span = document.getElementById("span");
   let hobb = document.getElementById("thobbies");
   let textareas = document.querySelectorAll("textarea");
@@ -559,7 +559,9 @@ function getInputs() {
       document.querySelector(".template-container .img-div").style.display =
         "none";
       main1.style.gridTemplateColumns = "1fr";
-      section2.style.paddingLeft = "7rem";
+      section2.style.paddingLeft = "3rem";
+      document.querySelector(".template-container .tmain-5").style.padding =
+        "1rem 3rem";
     }
 
     //
@@ -601,7 +603,7 @@ function getInputs() {
 function downloadPDF() {
   html2canvas(document.querySelector("#templateMain")).then((canvas) => {
     let base64image = canvas.toDataURL("image/png");
-    // console.log(base64image);
+    console.log(base64image);
 
     let pdf;
 
@@ -618,7 +620,7 @@ function downloadPDF() {
       const pdfheight = pdf.internal.pageSize.getHeight();
       pdf.addImage(base64image, "PNG", 0, 0, pdfwidth, pdfheight); // 15 15 669 722
     } else {
-      pdf = new jsPDF("p", "px", "a3"); // 940 700
+      pdf = new jsPDF("p", "px", [540, 730]); // 940 700
       const pdfwidth = pdf.internal.pageSize.getWidth();
       const pdfheight = pdf.internal.pageSize.getHeight();
       pdf.addImage(base64image, "PNG", 0, 0, pdfwidth, pdfheight); //15 15 669 902
@@ -626,6 +628,12 @@ function downloadPDF() {
 
     pdf.save(tfname.textContent + "'s Resume" + ".pdf");
   });
+}
+
+function allClear() {
+  alert("All fields will be cleared");
+  location.reload();
+  location.href = "index.html#container";
 }
 
 // window.onload = () => {
