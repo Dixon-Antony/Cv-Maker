@@ -1,4 +1,4 @@
-window.jsPDF = window.jspdf.jsPDF;
+// window.jsPDF = window.jspdf.jsPDF;
 
 $(document).ready(function () {
   window.jsPDF = window.jspdf.jsPDF;
@@ -256,21 +256,85 @@ function getInputs() {
   // e.preventDefault();
   // console.log(e);
 
-  var allReq = document.querySelectorAll("[required]");
-  for (var i of allReq) {
-    i.style.border = "none";
-    if (i.value == "") {
-      alert("Please Fill in all required fields *");
+  // var allReq = document.querySelectorAll("[required]");
+  // for (var i of allReq) {
+  //   i.style.border = "none";
+  //   if (i.value == "") {
+  //     alert("Please Fill in all required fields *");
 
-      i.style.border = `1px solid #FC5858`;
+  //     i.style.border = `1px solid #FC5858`;
 
-      i.scrollIntoView({
-        behavior: "auto",
-        block: "center",
-        inline: "center",
-      });
-      return;
-    }
+  //     i.scrollIntoView({
+  //       behavior: "auto",
+  //       block: "center",
+  //       inline: "center",
+  //     });
+  //     return;
+  //   }
+  // }
+
+  if (
+    document.getElementById("cgpa").value != "" &&
+    document.getElementById("college").value == ""
+  ) {
+    alert("College Name Required *");
+    document.getElementById("college").style.border = `1px solid #FC5858`;
+    document.getElementById("college").scrollIntoView({
+      behavior: "auto",
+      block: "center",
+      inline: "center",
+    });
+    return;
+  } else {
+    document.getElementById("college").style.border = `none`;
+  }
+
+  if (
+    document.getElementById("twelth").value != "" &&
+    document.getElementById("school").value == ""
+  ) {
+    alert("School Name Required *");
+    document.getElementById("school").style.border = `1px solid #FC5858`;
+    document.getElementById("school").scrollIntoView({
+      behavior: "auto",
+      block: "center",
+      inline: "center",
+    });
+    return;
+  } else {
+    document.getElementById("school").style.border = `none`;
+  }
+
+  if (
+    document.getElementById("cgpa").value == "" &&
+    document.getElementById("college").value != ""
+  ) {
+    alert("University CGPA Required *");
+    document.getElementById("cgpa").style.border = `1px solid #FC5858`;
+    document.getElementById("cgpa").scrollIntoView({
+      behavior: "auto",
+      block: "center",
+      inline: "center",
+    });
+    return;
+  } else {
+    document.getElementById("cgpa").style.border = `none`;
+  }
+
+  if (
+    document.getElementById("twelth").value == "" &&
+    document.getElementById("school").value != ""
+  ) {
+    alert("12th Marks Required *");
+    document.getElementById("twelth").style.border = `1px solid #FC5858`;
+    document.getElementById("twelth").scrollIntoView({
+      behavior: "auto",
+      block: "center",
+      inline: "center",
+    });
+    return;
+  } else {
+    document.getElementById("twelth").style.border = `none`;
   }
 
   if (confirm("Are you sure, you want to generate your resume ?")) {
@@ -525,13 +589,25 @@ function downloadPDF() {
       tjobdesc.textContent == ""
     ) {
       pdf = new jsPDF("p", "px", [750, 700]); // 750 700
-      pdf.addImage(base64image, "PNG", 15, 15, 669, 722); //669 722
+      // pdf.setFillColor = (0, 0, 0);
+      const pdfwidth = pdf.internal.pageSize.getWidth();
+      const pdfheight = pdf.internal.pageSize.getHeight();
+      pdf.addImage(base64image, "PNG", 0, 0, pdfwidth, pdfheight); // 15 15 669 722
     } else {
-      pdf = new jsPDF("p", "px", [940, 700]); // 750 700
-      pdf.addImage(base64image, "PNG", 15, 15, 669, 902); //669 722
+      pdf = new jsPDF("p", "px", "a3"); // 940 700
+      const pdfwidth = pdf.internal.pageSize.getWidth();
+      const pdfheight = pdf.internal.pageSize.getHeight();
+      pdf.addImage(base64image, "PNG", 0, 0, pdfwidth, pdfheight); //15 15 669 902
     }
 
     pdf.save(tfname.textContent + "'s Resume" + ".pdf");
+  });
+}
+
+function down() {
+  var pdf = new jsPDF("p", "px", [750, 700]);
+  pdf.addHTML(document.querySelector("#templateMain"), function () {
+    pdf.save("web.pdf");
   });
 }
 
