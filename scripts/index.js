@@ -614,13 +614,13 @@ function downloadPDF() {
       tendDate.textContent == "" &&
       tjobdesc.textContent == ""
     ) {
-      pdf = new jsPDF("p", "px", [750, 700]); // 750 700
+      pdf = new jsPDF("p", "px", [540, 780]); // 750 700
       // pdf.setFillColor = (0, 0, 0);
       const pdfwidth = pdf.internal.pageSize.getWidth();
       const pdfheight = pdf.internal.pageSize.getHeight();
       pdf.addImage(base64image, "PNG", 0, 0, pdfwidth, pdfheight); // 15 15 669 722
     } else {
-      pdf = new jsPDF("p", "px", [540, 730]); // 940 700
+      pdf = new jsPDF("p", "px", [540, 950]); // 940 700
       const pdfwidth = pdf.internal.pageSize.getWidth();
       const pdfheight = pdf.internal.pageSize.getHeight();
       pdf.addImage(base64image, "PNG", 0, 0, pdfwidth, pdfheight); //15 15 669 902
