@@ -265,22 +265,22 @@ function getInputs() {
   // e.preventDefault();
   // console.log(e);
 
-  // var allReq = document.querySelectorAll("[required]");
-  // for (var i of allReq) {
-  //   i.style.border = "none";
-  //   if (i.value == "") {
-  //     alert("Please Fill in all required fields *");
+  var allReq = document.querySelectorAll("[required]");
+  for (var i of allReq) {
+    i.style.border = "none";
+    if (i.value == "") {
+      alert("Please Fill in all required fields *");
 
-  //     i.style.border = `1px solid #FC5858`;
+      i.style.border = `1px solid #FC5858`;
 
-  //     i.scrollIntoView({
-  //       behavior: "auto",
-  //       block: "center",
-  //       inline: "center",
-  //     });
-  //     return;
-  //   }
-  // }
+      i.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "center",
+      });
+      return;
+    }
+  }
 
   if (
     document.getElementById("cgpa").value != "" &&
