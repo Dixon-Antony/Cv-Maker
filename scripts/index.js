@@ -8,9 +8,23 @@ $(document).ready(function () {
 
   var addButton = $(".add_button"); //Add button selector
   var wrapper = $("#allProjects"); //Input field wrapper
-  var fieldHTML = `<div id="projectDiv" class="projectsDiv">
+  var fieldHTML;
+  let darkLinkClass;
+  let darkInputClass;
+
+  var projectCounter = 1; //Initial field counter is 1
+  $(addButton).click(function () {
+    if (theme == "dark") {
+      darkLinkClass = "darkLink";
+      darkInputClass = "darkInput";
+    } else {
+      darkLinkClass = "";
+      darkInputClass = "";
+    }
+
+    fieldHTML = `<div id="projectDiv" class="projectsDiv">
     <input
-      class="darkInput"
+      class="${darkInputClass}"
       type="text"
       name="projects"
       id="projects"
@@ -18,18 +32,16 @@ $(document).ready(function () {
       required
     />
     <input
-      class="darkInput"
+      class="${darkInputClass}"
       type="text"
       name="projectLang"
       id="projectLang"
       placeholder="Enter project language"
       required
     />
-    <a class="remove_button darkLink">Del</a>
+    <a class="remove_button ${darkLinkClass}">Del</a>
   </div>`; //New input field html
 
-  var projectCounter = 1; //Initial field counter is 1
-  $(addButton).click(function () {
     //Check maximum number of input fields
     if (projectCounter < maxField) {
       projectCounter++; //Increment field counter
@@ -48,20 +60,30 @@ $(document).ready(function () {
 
   var skaddButton = $(".skadd_button"); //Add button selector
   var skwrapper = $("#allSkills"); //Input field wrapper
-  var skfieldHTML = `<div id="skillDiv" class="skillsDiv">
-  <input
-    class="darkInput"
-    type="text"
-    name="skills"
-    id="skills"
-    placeholder="Enter your technical expertise (comma separated)"
-    required
-  />
-  <a class="skremove_button darkLink">Del</a>
-</div>`; //New input field html
+  var skfieldHTML;
 
   var skillsCounter = 1; //Initial field counter is 1
   $(skaddButton).click(function () {
+    if (theme == "dark") {
+      darkLinkClass = "darkLink";
+      darkInputClass = "darkInput";
+    } else {
+      darkLinkClass = "";
+      darkInputClass = "";
+    }
+
+    skfieldHTML = `<div id="skillDiv" class="skillsDiv">
+    <input
+      class="${darkInputClass}"
+      type="text"
+      name="skills"
+      id="skills"
+      placeholder="Enter your technical expertise (comma separated)"
+      required
+    />
+    <a class="skremove_button ${darkLinkClass}">Del</a>
+  </div>`; //New input field html
+
     //Check maximum number of input fields
     if (skillsCounter < maxField) {
       skillsCounter++; //Increment field counter
@@ -80,28 +102,38 @@ $(document).ready(function () {
 
   var profaddButton = $(".prof_add_button"); //Add button selector
   var profwrapper = $("#allProfiles"); //Input field wrapper
-  var proffieldHTML = `<div id="profileDiv" class="profilesDiv">
-  <input
-    class="darkInput"
-    type="text"
-    name="profiles"
-    id="profiles"
-    placeholder="Enter platform"
-    required
-  />
-  <input
-    class="darkInput"
-    type="text"
-    name="profileLink"
-    id="profileLink"
-    placeholder="Enter link"
-    required
-  />
-  <a class="prof_remove_button darkLink">Del</a>
-</div>`; //New input field html
+  var proffieldHTML;
 
   var profileCounter = 1; //Initial field counter is 1
   $(profaddButton).click(function () {
+    if (theme == "dark") {
+      darkLinkClass = "darkLink";
+      darkInputClass = "darkInput";
+    } else {
+      darkLinkClass = "";
+      darkInputClass = "";
+    }
+
+    proffieldHTML = `<div id="profileDiv" class="profilesDiv">
+    <input
+      class="${darkInputClass}"
+      type="text"
+      name="profiles"
+      id="profiles"
+      placeholder="Enter platform"
+      required
+    />
+    <input
+      class="${darkInputClass}"
+      type="text"
+      name="profileLink"
+      id="profileLink"
+      placeholder="Enter link"
+      required
+    />
+    <a class="prof_remove_button ${darkLinkClass}">Del</a>
+  </div>`; //New input field html
+
     //Check maximum number of input fields
     if (profileCounter < maxField) {
       profileCounter++; //Increment field counter
@@ -142,12 +174,14 @@ let color = darkColor;
 function switchTheme() {
   if (theme == "dark") {
     theme = "light";
+    neotheme = "light";
     color = lightColor;
   } else {
     theme = "dark";
+    neotheme = "dark";
     color = darkColor;
   }
-  console.log(theme);
+  // console.log(theme);
 
   let body = document.body;
   let navContent = document.getElementById("nav-content");
@@ -160,6 +194,7 @@ function switchTheme() {
   let textareas = document.querySelectorAll("textarea");
   let mains = document.getElementById("mains");
   let lists = document.querySelectorAll("ul");
+  let summ = document.querySelector("summary");
 
   let splProfiles = document.querySelectorAll("#tProfiles > li > a");
 
@@ -203,7 +238,7 @@ function switchTheme() {
   tempMain.classList.toggle("darkTemplate");
   span.classList.toggle("spanDark");
   mains.classList.toggle("darkMain");
-  // hobb.classList.toggle("darklist");
+  summ.classList.toggle("darkSummary");
 
   if (theme == "light") {
     hobb.style.color = "black";
@@ -212,26 +247,31 @@ function switchTheme() {
   }
 }
 
+function getTheme() {
+  console.log(theme);
+  return theme;
+}
+
 function getInputs() {
   // e.preventDefault();
   // console.log(e);
 
   var allReq = document.querySelectorAll("[required]");
-  // for (var i of allReq) {
-  //   i.style.border = "none";
-  //   if (i.value == "") {
-  //     alert("Please Fill in all required fields *");
+  for (var i of allReq) {
+    i.style.border = "none";
+    if (i.value == "") {
+      alert("Please Fill in all required fields *");
 
-  //     i.style.border = `1px solid #FC5858`;
+      i.style.border = `1px solid #FC5858`;
 
-  //     i.scrollIntoView({
-  //       behavior: "auto",
-  //       block: "center",
-  //       inline: "center",
-  //     });
-  //     return;
-  //   }
-  // }
+      i.scrollIntoView({
+        behavior: "auto",
+        block: "center",
+        inline: "center",
+      });
+      return;
+    }
+  }
 
   if (confirm("Are you sure, you want to generate your resume ?")) {
     let gen = document.getElementById("generate");

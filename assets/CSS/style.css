@@ -231,7 +231,11 @@ textarea {
 }
 
 .main summary {
-  color: aquamarine;
+  color: #4589eb;
+}
+
+.darkSummary {
+  color: #33ffc1 !important;
 }
 
 .main-2,
