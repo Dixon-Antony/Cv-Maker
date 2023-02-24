@@ -344,8 +344,7 @@
           </div>
           <br />
           <div>
-            <label for="projects">Projects : (title and language used)</label
-            ><br /><br />
+            <label for="projects">Projects : (atleast one)</label><br /><br />
             <!-- <textarea
                 class="darkInput"
                 cols="150"
@@ -378,33 +377,53 @@ Project2 - (Languages Used)"
               </div>
             </div>
           </div>
-          <br />
-          <div>
-            <label for="skills">Skills : (technical)</label><br /><br />
-            <div id="allSkills">
-              <div id="skillDiv" class="skillsDiv">
-                <input
-                  class="darkInput"
-                  type="text"
-                  name="skills"
-                  id="skills"
-                  placeholder="Enter your technical expertise"
-                  required
-                />
-                <a class="skadd_button darkLink">Add</a>
+          <br /><br />
+          <div class="main-9">
+            <hr />
+            <br />
+            <h1 class="part-4 darkHeading">
+              Co-curricular & Extra-Curricular <br />
+            </h1>
+            <br />
+            <div>
+              <label for="skills">Skills : (Technical)</label><br /><br />
+              <div id="allSkills">
+                <div id="skillDiv" class="skillsDiv">
+                  <input
+                    class="darkInput"
+                    type="text"
+                    name="skills"
+                    id="skills"
+                    placeholder="Enter your technical expertise"
+                    required
+                  />
+                  <a class="skadd_button darkLink">Add</a>
+                </div>
               </div>
             </div>
-          </div>
-          <br />
-          <div>
-            <label for="hobbies">Hobbies : (optional)</label><br /><br />
-            <input
-              class="darkInput"
-              type="text"
-              name="hobbies"
-              id="hobbies"
-              placeholder="Enter your hobbies (comma separated)"
-            />
+            <br />
+            <div>
+              <label for="hobbies">Hobbies : (optional)</label><br /><br />
+              <input
+                class="darkInput"
+                type="text"
+                name="hobbies"
+                id="hobbies"
+                placeholder="Enter your hobbies (comma separated)"
+              />
+            </div>
+            <br />
+            <div>
+              <label for="extra">Extra Curricular : (optional)</label
+              ><br /><br />
+              <input
+                class="darkInput"
+                type="text"
+                name="extra"
+                id="extra"
+                placeholder="Enter Extra-Curricular activities (comma separated)"
+              />
+            </div>
           </div>
         </div>
         <br /><br />
@@ -500,10 +519,7 @@ Project2 - (Languages Used)"
           </div>
         </div>
         <br />
-        <h1 class="part-3 darkHeading">
-          Profile Details <br />
-          <hr />
-        </h1>
+        <hr />
         <div class="tmain-5">
           <div>
             <label id="tlabel" class="darkLabel" for="ttellme"
@@ -518,8 +534,7 @@ Project2 - (Languages Used)"
           </div>
           <br />
           <div id="hideableProfiles">
-            <label id="tlabel" class="darkLabel" for="tProfiles"
-              >Profiles : </label
+            <label id="tlabel" class="darkLabel" for="tProfiles">Links : </label
             ><br />
             <ul class="darkList" id="tProfiles"></ul>
             <!-- <h3 name="tProfiles" id="tProfiles">Python, HTml, CSS, JavaScript</h3> -->
@@ -527,6 +542,7 @@ Project2 - (Languages Used)"
         </div>
         <!-- Main-2 -->
         <!-- .... -->
+
         <h1 id="prevHeading" class="part-2 darkHeading">
           Work Experience <br />
           <hr />
@@ -577,7 +593,7 @@ Project2 - (Languages Used)"
           </div>
         </div>
         <h1 class="part-3 darkHeading">
-          Educational Details <br />
+          Education <br />
           <hr />
         </h1>
         <div class="main-6">
@@ -629,7 +645,13 @@ Project2 - (Languages Used)"
               Movie Recommendation System, Events Management System
             </h3> -->
           </div>
-          <br />
+        </div>
+        <br />
+        <h1 class="part-3 darkHeading">
+          Co-curricular & Extra Curricular
+          <hr />
+        </h1>
+        <div class="main-9">
           <div id="hideableSkills">
             <label id="tlabel" class="darkLabel" for="tskills">Skills : </label
             ><br />
@@ -643,6 +665,13 @@ Project2 - (Languages Used)"
             <h3 name="thobbies" id="thobbies">
               Playing VideoGames, Working out
             </h3>
+          </div>
+          <br />
+          <div id="hideableExtra">
+            <label id="tlabel" class="darkLabel" for="textra"
+              >Extra-Curricular :</label
+            ><br />
+            <h3 name="textra" id="textra">Billiards, Tennis, Basketball</h3>
           </div>
         </div>
       </div>

@@ -259,7 +259,8 @@ textarea {
   grid-template-columns: 1fr;
 }
 
-.main-8 {
+.main-8,
+.main-9 {
   padding-left: 6rem;
   padding-top: 2rem;
 }
@@ -473,7 +474,9 @@ ul,
 }
 
 #thobbies {
+  display: block;
   color: white;
+  padding-top: 1rem;
 }
 
 .darkList {

@@ -195,6 +195,15 @@ function switchTheme() {
   let mains = document.getElementById("mains");
   let lists = document.querySelectorAll("ul");
   let summ = document.querySelector("summary");
+  let hrs = document.querySelectorAll(".template-container hr");
+
+  for (let hr of hrs) {
+    if (theme == "dark") {
+      hr.style.color = "white";
+    } else {
+      hr.style.color = "#333";
+    }
+  }
 
   let splProfiles = document.querySelectorAll("#tProfiles > li > a");
 
@@ -372,6 +381,7 @@ function getInputs() {
     //
 
     let hobbies = document.getElementById("hobbies");
+    let extras = document.getElementById("extra");
     //
     //Template Contents
     //
@@ -392,6 +402,7 @@ function getInputs() {
     let ttenth = document.getElementById("ttenth");
     let ttwelth = document.getElementById("ttwelth");
     let tcgpa = document.getElementById("tcgpa");
+    let textras = document.getElementById("textra");
     //
     var tprojects = $("#tprojects");
 
@@ -422,10 +433,16 @@ function getInputs() {
     //
     var tProfiles = $("#tProfiles");
     if (profiles[0].value) {
+      var darkListClass;
+      if (theme == "dark") {
+        darkListClass = "darkList";
+      } else {
+        darkListClass = "";
+      }
       for (let i = 0; i < profiles.length; i += 2) {
         var profilesContent = `<li>${
           profiles[i].value
-        } --> <a target='_blank' class='darkList' href='${
+        } --> <a target='_blank' class=${darkListClass} href='${
           profiles[i + 1].value
         }'>Click for ${profiles[i].value} Profile</a></li>`;
         console.log(profilesContent);
@@ -487,7 +504,14 @@ function getInputs() {
 
     thobbies.textContent = hobbies.value;
     // console.log(thobbies.textContent);
+    textras.textContent = extra.value;
+    // console.log(textras.textContent);
 
+    if (textras.textContent == "") {
+      document.getElementById("hideableExtra").style.display = "none";
+    }
+    //
+    //
     if (thobbies.textContent == "") {
       document.getElementById("hideableHobbies").style.display = "none";
     }
@@ -601,13 +625,6 @@ function downloadPDF() {
     }
 
     pdf.save(tfname.textContent + "'s Resume" + ".pdf");
-  });
-}
-
-function down() {
-  var pdf = new jsPDF("p", "px", [750, 700]);
-  pdf.addHTML(document.querySelector("#templateMain"), function () {
-    pdf.save("web.pdf");
   });
 }
 
